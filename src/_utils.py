@@ -13,7 +13,9 @@ def query_lexica(query, num_images=5):
     '''
     resp = r.get(f"https://lexica.art/api/v1/search?q={query}", timeout=5)
     images = []
-    for img in resp['images'][:num_images]:
+    for img in resp['images']:
+        if len(images) == num_images:
+            break
         url = img['src']
         response = r.get(url, timeout=5)
         img = Image.open(BytesIO(response.content))

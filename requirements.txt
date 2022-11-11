@@ -3,3 +3,4 @@ torch
 sentence-transformers
 numpy
 scipy
+datasets
