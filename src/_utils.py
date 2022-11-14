@@ -52,3 +52,25 @@ def show_topics(a, vocab, num_top_words=8):
     top_words = lambda t: [vocab[i] for i in np.argsort(t)[:-num_top_words-1:-1]]
     topic_words = ([top_words(t) for t in a])
     return [' '.join(t) for t in topic_words]
+
+def slerp(t, v0, v1, DOT_THRESHOLD=0.9995):
+    #Spherically interpolate between two embedding vectors
+
+    if not isinstance(v0, np.ndarray):
+        v0 = v0.cpu().numpy()
+        v1 = v1.cpu().numpy()
+
+    dot = np.sum(v0 * v1 / (np.linalg.norm(v0) * np.linalg.norm(v1)))
+    if np.abs(dot) > DOT_THRESHOLD:
+        v2 = (1 - t) * v0 + t * v1
+
+    else:
+        theta_0 = np.arccos(dot)
+        sin_theta_0 = np.sin(theta_0)
+        theta_t = theta_0 * t
+        sin_theta_t = np.sin(theta_t)
+        s0 = np.sin(theta_0 - theta_t) / sin_theta_0
+        s1 = sin_theta_t / sin_theta_0
+        v2 = s0 * v0 + s1 * v1
+
+    return v2
