@@ -11,3 +11,4 @@ This repo explores how using clustering, dimensionality reduction kmeans, svd an
 - given a list of topics for a cluster, spherically interpolate through the text prompts and generate topic frames with stable diffusion model
 - interpolating between centroids
 - maybe generate an unsupervised news real
+- clustered image mosaics using stable diffusion infinity 
