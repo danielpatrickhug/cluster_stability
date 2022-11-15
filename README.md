@@ -1,9 +1,9 @@
 # cluster_stability
-Using stable diffusion models to generate images from topic clusters
+In this repo we  explore how to use kmeans and other clustering techniques on text data and then generate images using stable diffusion. This is a technique to visualize the learned kmeans centroids. The text/topics are used as a query to a large database of image prompts and images and the nearest neighbors are found. The image nearest to the centroid is used as a representative image for that centroid.
 
 
-### What is the purpose of this repo
-- The purpose of this repository is to take unstructured text data, cluster the data(sbert, kmeans), topics modeling, and generation of images representative of the local topic clusters.
+### Motivation
+- Kmeans is a popular algorithm to generate clusters in an unsupervised fashion. We will see how to use it on text data. Then we will use stable diffusion to generate images for each cluster.
 
 ### ideas
 - given a list of topics for a cluster, spherically interpolate through the text prompts and generate topic frames with stable diffusion model
