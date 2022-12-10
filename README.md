@@ -5,7 +5,8 @@ This repo explores using clustering, dimensionality reduction. kmeans, svd and p
 
 ### Motivation
 - Kmeans is a popular algorithm to generate clusters in an unsupervised fashion. We will see how to use it on text data. Then I show how to use stable diffusion to generate images for each cluster.
-
+- add LDA 
+- BertTopic
 ### ideas
 - given a list of topics for a cluster, spherically interpolate through the text prompts and generate topic frames with stable diffusion model
 - interpolating between centroids
